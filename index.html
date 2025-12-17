@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Product Store</title>
+
+  <style>
+    :root {
+      --black: #0f0f0f;
+      --gray: #6b6b6b;
+      --light: #f5f5f5;
+      --accent: #111;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", Arial, sans-serif;
+    }
+
+    body {
+      background: var(--light);
+      color: var(--black);
+    }
+
+    .profile-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px 40px;
+      text-align: center;
+    }
+
+    .store-name {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .profile-image {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 20px;
+      background: #ddd;
+    }
+
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-desc {
+      max-width: 600px;
+      font-size: 15px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    .product-section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+    }
+
+    .product-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #eaeaea;
+      margin-bottom: 16px;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-name {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .product-desc {
+      font-size: 13px;
+      color: var(--gray);
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .price {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .old-price {
+      font-size: 14px;
+      color: var(--gray);
+      text-decoration: line-through;
+    }
+
+    .new-price {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .order-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 12px 0;
+      background: #111;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .order-btn:hover {
+      background: #000;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 13px;
+      color: var(--gray);
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="profile-section">
+    <div class="store-name">RAFFIZA DIGITAL STORE</div>
+
+    <div class="profile-image">
+      <img src="foto profi.jpg" alt="Foto Profil">
+    </div>
+
+    <p class="profile-desc">
+      Hallo yang mau order boleh pilih produknya ya, nanti diarahkan ke WhatsApp mimin.
+      Setelah pembayaran langsung dibuatin tanpa antri, harga termurah & aman 100%.
+    </p>
+  </section>
+
+  <section class="product-section">
+
+    <div class="product-card">
+      <div class="product-image">
+        <img src="produk 1.jpg" alt="SOUND + NAMA">
+      </div>
+
+      <audio controls class="media">
+        <source src="geleng geleng 16 1.mp3" type="audio/mpeg">
+      </audio>
+
+      <div class="product-name">SOUND + NAMA</div>
+      <div class="product-desc">
+        konfirmasi pembayaran dan jika sudah kirim nama 3 kata
+      </div>
+
+      <div class="price">
+        <span class="old-price">Rp 50.000</span>
+        <span class="new-price">Rp 30.000</span>
+      </div>
+
+      <a class="order-btn"
+         href="https://wa.me/6281228607445?text=mau%20order%20sound%20nama%20min%2030k"
+         target="_blank">
+        Order Sekarang
+      </a>
+    </div>
+
+    <div class="product-card">
+      <div class="product-image">
+        <video controls class="media" style="width:100%; height:100%; object-fit:cover;">
+          <source src="video jj.MP4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="product-name">SOUND + NAMA + JJ</div>
+      <div class="product-desc">
+        konfirmasi pembayaran dan kirim nama 3 kata dan minta preset atau di edit kan
+      </div>
+
+      <div class="price">
+        <span class="old-price">Rp 80.000</span>
+        <span class="new-price">Rp 50.000</span>
+      </div>
+
+      <a class="order-btn"
+         href="https://wa.me/6281228607445?text=mau%20order%20sound%20nama%20min%2030k"
+         target="_blank">
+        Order Sekarang
+      </a>
+    </div>
+
+  </section>
+
+  <footer>
+    © TikTok :
+    <a href="https://www.tiktok.com/@vixzaaa_" target="_blank" style="color:#6b6b6b; text-decoration:none;">
+      @vixzaaa_
+    </a>
+  </footer>
+
+  <script>
+    const mediaElements = document.querySelectorAll('.media');
+    mediaElements.forEach(el => {
+      el.addEventListener('play', () => {
+        mediaElements.forEach(other => {
+          if (other !== el) {
+            other.pause();
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
