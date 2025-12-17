@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vixzaa store</title>
+  <title>vixzaa store REMIX</title>
 
   <style>
     :root {
@@ -25,6 +25,64 @@
       color: var(--black);
     }
 
+    /* ===== WHATSAPP GATE ===== */
+    .whatsapp-gate {
+      position: fixed;
+      inset: 0;
+      background: #f5f5f5;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gate-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      max-width: 340px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    }
+
+    .gate-box h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .gate-box p {
+      font-size: 14px;
+      color: var(--gray);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .gate-btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 12px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .join-btn {
+      background: #25D366;
+      color: #fff;
+    }
+
+    .loading-text {
+      display: none;
+      font-size: 14px;
+      margin-top: 15px;
+      line-height: 1.5;
+    }
+
+    /* ===== PROFILE ===== */
     .profile-section {
       display: flex;
       flex-direction: column;
@@ -61,6 +119,7 @@
       line-height: 1.6;
     }
 
+    /* ===== PRODUCTS ===== */
     .product-section {
       max-width: 1100px;
       margin: auto;
@@ -92,7 +151,8 @@
       margin-bottom: 16px;
     }
 
-    .product-image img {
+    .product-image img,
+    .product-image video {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -140,12 +200,6 @@
       font-size: 14px;
       font-weight: 600;
       text-align: center;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    .order-btn:hover {
-      background: #000;
-      transform: translateY(-2px);
     }
 
     footer {
@@ -159,92 +213,141 @@
 
 <body>
 
-  <section class="profile-section">
-    <div class="store-name">RAFFIZA DIGITAL STORE</div>
-
-    <div class="profile-image">
-      <img src="foto profi.jpg" alt="Foto Profil">
-    </div>
-
-    <p class="profile-desc">
-      Hallo yang mau order boleh pilih produknya ya, nanti diarahkan ke WhatsApp mimin.
-      Setelah pembayaran langsung dibuatin tanpa antri, harga termurah & aman 100%.
+<!-- WHATSAPP GATE -->
+<div class="whatsapp-gate" id="waGate">
+  <div class="gate-box">
+    <h2>Wajib Join Saluran</h2>
+    <p>
+      Buat buka web ini,<br>
+      silahkan join saluran dulu ya kakak kakak ku 😻
+nanti setelah join balik ke web otomatis web terbuka 🤪
     </p>
-  </section>
 
-  <section class="product-section">
-
-    <div class="product-card">
-      <div class="product-image">
-        <img src="produk 1.jpg" alt="SOUND + NAMA">
-      </div>
-
-      <audio controls class="media">
-        <source src="geleng geleng 16 1.mp3" type="audio/mpeg">
-      </audio>
-
-      <div class="product-name">SOUND + NAMA</div>
-      <div class="product-desc">
-        konfirmasi pembayaran dan jika sudah kirim nama 3 kata
-      </div>
-
-      <div class="price">
-        <span class="old-price">Rp 50.000</span>
-        <span class="new-price">Rp 30.000</span>
-      </div>
-
-      <a class="order-btn"
-         href="https://wa.me/6281228607445?text=mau%20order%20sound%20nama%20min%2030k"
-         target="_blank">
-        Order Sekarang
-      </a>
-    </div>
-
-    <div class="product-card">
-      <div class="product-image">
-        <video controls class="media" style="width:100%; height:100%; object-fit:cover;">
-          <source src="video jj.MP4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="product-name">SOUND + NAMA + JJ</div>
-      <div class="product-desc">
-        konfirmasi pembayaran dan kirim nama 3 kata dan minta preset atau di edit kan
-      </div>
-
-      <div class="price">
-        <span class="old-price">Rp 80.000</span>
-        <span class="new-price">Rp 50.000</span>
-      </div>
-
-      <a class="order-btn"
-         href="https://wa.me/6281228607445?text=mau%20order%20sound%20nama%20min%2050k"
-         target="_blank">
-        Order Sekarang
-      </a>
-    </div>
-
-  </section>
-
-  <footer>
-    © TikTok :
-    <a href="https://www.tiktok.com/@vixzaaa_" target="_blank" style="color:#6b6b6b; text-decoration:none;">
-      @vixzaaa_
+    <!-- 🔴 GANTI LINK SALURAN DI SINI -->
+    <a href="https://whatsapp.com/channel/0029Vb6rkt84CrfgGfI6Kr3S"
+       target="_blank"
+       class="gate-btn join-btn"
+       onclick="startLoading()">
+      Join Saluran WhatsApp
     </a>
-  </footer>
 
-  <script>
-    const mediaElements = document.querySelectorAll('.media');
-    mediaElements.forEach(el => {
-      el.addEventListener('play', () => {
-        mediaElements.forEach(other => {
-          if (other !== el) {
-            other.pause();
-          }
-        });
+    <div class="loading-text" id="loadingText">
+      Harap tunggu sebentar... <br>
+      <strong><span id="countdown">5</span> detik</strong>
+    </div>
+  </div>
+</div>
+
+<!-- PROFILE -->
+<section class="profile-section">
+  <div class="store-name">VIXZAA STORE REMIX</div>
+
+  <div class="profile-image">
+    <img src="foto profi.jpg" alt="Foto Profil">
+  </div>
+
+  <p class="profile-desc">
+    Hallo yang mau order boleh pilih produknya ya, nanti diarahkan ke WhatsApp mimin.
+    Setelah pembayaran langsung dibuatin tanpa antri, harga termurah & aman 100%.
+  </p>
+</section>
+
+<!-- PRODUCTS -->
+<section class="product-section">
+
+  <!-- PRODUK 1 -->
+  <div class="product-card">
+    <div class="product-image">
+      <img src="produk 1.jpg" alt="SOUND + NAMA">
+    </div>
+
+    <audio controls class="media" style="width:100%; margin-bottom:12px;">
+      <source src="geleng geleng 16 1.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="product-name">SOUND + NAMA</div>
+    <div class="product-desc">
+      Konfirmasi pembayaran lalu kirim nama maksimal 3 kata.
+    </div>
+
+    <div class="price">
+      <span class="old-price">Rp 50.000</span>
+      <span class="new-price">Rp 30.000</span>
+    </div>
+
+    <a class="order-btn"
+       href="https://wa.me/6281228607445?text=mau%20order%20sound%20nama%20min%2030k"
+       target="_blank">
+      Order Sekarang
+    </a>
+  </div>
+
+  <!-- PRODUK 2 -->
+  <div class="product-card">
+    <div class="product-image">
+      <video controls class="media">
+        <source src="video jj.MP4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="product-name">SOUND + NAMA + JJ</div>
+    <div class="product-desc">
+      Konfirmasi pembayaran, kirim nama 3 kata & request preset/edit.
+    </div>
+
+    <div class="price">
+      <span class="old-price">Rp 80.000</span>
+      <span class="new-price">Rp 50.000</span>
+    </div>
+
+    <a class="order-btn"
+       href="https://wa.me/6281228607445?text=mau%20order%20sound%20nama%20min%2030k"
+       target="_blank">
+      Order Sekarang
+    </a>
+  </div>
+
+</section>
+
+<footer>
+  © TikTok :
+  <a href="https://www.tiktok.com/@vixzaaa_" target="_blank" style="color:#6b6b6b; text-decoration:none;">
+    @vixzaaa_
+  </a>
+</footer>
+
+<script>
+  // TIMER DIMULAI SAAT KLIK JOIN
+  function startLoading() {
+    const loading = document.getElementById('loadingText');
+    const countdown = document.getElementById('countdown');
+
+    loading.style.display = 'block';
+
+    let time = 5;
+    countdown.textContent = time;
+
+    const interval = setInterval(() => {
+      time--;
+      countdown.textContent = time;
+
+      if (time <= 0) {
+        clearInterval(interval);
+        document.getElementById('waGate').style.display = 'none';
+      }
+    }, 1000);
+  }
+
+  // AUDIO & VIDEO TIDAK BERSAMAAN
+  const mediaElements = document.querySelectorAll('.media');
+  mediaElements.forEach(el => {
+    el.addEventListener('play', () => {
+      mediaElements.forEach(other => {
+        if (other !== el) other.pause();
       });
     });
-  </script>
+  });
+</script>
 
 </body>
 </html>
